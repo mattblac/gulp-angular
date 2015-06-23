@@ -1,0 +1,26 @@
+<nav ng-controller="HeaderNavCtrl as header"
+	 class="top-bar" 
+	 data-topbar 
+	 role="navigation">
+	<ul class="title-area">
+		<li class="name">
+			<h1><a href="#">Gulp-Angular</a></h1>
+		</li>
+
+		<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+	</ul>
+
+	<section class="top-bar-section">
+		<!-- Left Nav Section -->
+		<ul class="menu left">
+			<li ng-repeat="link in header.links"
+				ui-sref-active="active">
+				<a ui-sref="{{link.name}}" ng-bind="link.name"></a>
+			</li>
+
+			<!-- <li><a ui-sref="home">Home</a></li>
+			<li><a ui-sref="grid">Grid</a></li>
+			<li><a ui-sref="table">Table</a></li> -->
+		</ul>
+	</section>
+</nav>

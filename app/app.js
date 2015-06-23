@@ -10,12 +10,33 @@
 		})
 
 		// @ngInject
+		.run(function($rootScope, $state, $stateParams) {
+		  	$rootScope.$state 		= $state;
+		  	$rootScope.$stateParams = $stateParams;
+		})
+
+		// @ngInject
+		.run(function($timeout) {
+			$timeout(function () { 
+            	$(document).foundation();
+        	}, 300);
+		})
+
+		// @ngInject
 		.config(function($stateProvider, $urlRouterProvider) {
 			$urlRouterProvider.otherwise('/');
 			$stateProvider
 				.state('home', {
 					url: '/',
-					templateUrl: 'components/home.html'
+					templateUrl: 'views/home.html'
+				})
+				.state('grid', {
+					url: '/grid',
+					templateUrl: 'views/grid.html'
+				})
+				.state('table', {
+					url: '/table',
+					templateUrl: 'views/table.html'
 				});
 		});
 })();
